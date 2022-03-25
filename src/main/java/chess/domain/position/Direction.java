@@ -32,7 +32,7 @@ public enum Direction {
                 .filter(direction -> direction.row == rowWeight && direction.col == colWeight
                         && direction.isDiagonal == isDiagonal(source, target))
                 .findFirst()
-                .orElseThrow(IllegalArgumentException::new);
+                .orElseThrow(() -> new IllegalArgumentException("불가능한 이동 방향입니다."));
     }
 
     private static int calculateWeight(int value) {
